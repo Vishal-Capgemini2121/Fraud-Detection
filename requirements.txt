@@ -19,6 +19,9 @@ backports.weakref==1.0.post1
 base58==2.0.1
 beautifulsoup4==4.8.2
 bkcharts==0.2
+pandas
+numpy
+matplotlib
 bleach==3.1.0
 blinker==1.4
 bokeh==1.4.0
