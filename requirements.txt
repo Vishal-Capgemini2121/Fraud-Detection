@@ -33,8 +33,7 @@ path==13.1.0
 pathlib2==2.3.5
 pathtools==0.1.2
 Pillow==7.0.0
-pycountry
-plotly
+pycountry==20.7.3
 plotly==4.14.3
 requests==2.22.0
 requests-oauthlib==1.3.0
