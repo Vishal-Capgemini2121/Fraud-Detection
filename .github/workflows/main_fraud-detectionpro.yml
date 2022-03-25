@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
+      - name: Set makemigrations command on App Service
+        run: python manage.py makemigrations
+        
+      - name: Set migrations command on App Service
+        run: python manage.py migration
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
@@ -52,13 +58,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: python-app
-          path: .
-          
-      - name: Set migration command on App Service
-        uses: Azure/appservice-settings@v1
-        with:  
-          app-name: 'fraud-detectionpro'
-          app-settings-json: '[{ "name": "POST_BUILD_COMMAND",  "value": "python manage.py makemigrations && python manage.py migrate" }, { "name": "BUILD_DURING_DEPLOYMENT", "value": "true" }, { "name": "DJANGO_ENV", "value": "production"}]'
+          path: .          
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
